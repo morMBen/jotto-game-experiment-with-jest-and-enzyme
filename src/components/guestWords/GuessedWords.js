@@ -14,7 +14,7 @@ const GuessdWords = (props) => {
         ))
         contents = (<div data-test='guessed-words'>
             <h3>Guessd Word</h3>
-            <table>
+            <table className='table table-bordered'>
                 <thead>
                     <tr>
                         <th>Guess</th>
