@@ -27,7 +27,6 @@ const GuessdWords = (props) => {
             </table>
         </div>)
     }
-
     return (
         <div data-test='component-guessed-words'>{contents}</div>
     )
