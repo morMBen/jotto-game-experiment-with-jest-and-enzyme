@@ -1,5 +1,5 @@
 import { shallow } from "enzyme";
-import { findByTestAttr } from "../../../test/testUtils";
+import { checkProps, findByTestAttr } from "../../../test/testUtils";
 import Input from './Input';
 
 const defaultProps = {};
@@ -14,3 +14,12 @@ test('render without errors', () => {
     const component = findByTestAttr(wrapper, 'input-container');
     expect(component.length).toBe(1);
 });
+// test('get the right props', () => {
+//     const wrapper = setup('train');
+//     const component = findByTestAttr(wrapper, 'input-container');
+//     expect(component.text()).toBe('')
+// })
+test('dose not throw worning with the expected props', () => {
+    const expectedProps = { secretWord: 'bamboo number 5' };
+    checkProps(Input, expectedProps);
+})
