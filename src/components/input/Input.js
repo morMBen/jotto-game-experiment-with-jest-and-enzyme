@@ -16,8 +16,11 @@ const Input = ({ secretWord }) => {
                 <button
                     data-test='submit-button'
                     className='btn btn-primary mb-2'
+                    onClick={(n) => {
+                        n.preventDefault();
+                        setCurrentGuess('');
+                    }}
                 >
-
                 </button>
             </form>
         </div>
