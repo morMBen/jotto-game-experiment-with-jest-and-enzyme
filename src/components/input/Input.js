@@ -1,9 +1,10 @@
 import propTypes from 'prop-types';
 import { useState } from 'react';
-const Input = ({ secretWord }) => {
+const Input = ({ success, secretWord }) => {
     const [currentGuess, setCurrentGuess] = useState('');
+
     return (
-        <div data-test='input-container'>
+        success ? <div data-test='input-container' /> : <div data-test='input-container'>
             <form className='form-inline'>
                 <input
                     data-test='input-box'
