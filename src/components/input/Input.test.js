@@ -1,7 +1,15 @@
 import { shallow } from "enzyme";
-import React from "react";
+// import React from "react";
 import { checkProps, findByTestAttr } from "../../../test/testUtils";
+
 import Input from './Input';
+
+// mock entire module for destructuring useState on import
+const mockSetCurrentGuess = jest.fn();
+jest.mock('react', () => ({
+    ...jest.requireActual('react'),
+    useState: (initialState) => [initialState, mockSetCurrentGuess]
+}))
 
 const defaultProps = {};
 
@@ -21,8 +29,9 @@ test('dose not throw worning with the expected props', () => {
 })
 describe('state controlled input field', () => {
     test('state update with value of input box upon change', () => {
-        const mockSetCurrentGuess = jest.fn();
-        React.useState = jest.fn(() => ['', mockSetCurrentGuess]);
+        // mock react useState by overriding the method.
+        // const mockSetCurrentGuess = jest.fn();
+        // React.useState = jest.fn(() => ['', mockSetCurrentGuess]);
 
         const wrapper = setup();
         const inputBox = findByTestAttr(wrapper, 'input-box');
