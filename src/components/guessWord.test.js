@@ -22,8 +22,8 @@ const setup = ((state = {}) => {
     submitButton.simulate('click', { preventDefault() { } });
     return wrapper;
 })
-
-describe('no word guessed', () => {
+// .skip .only .todo
+describe.skip('no word guessed', () => {
     let wrapper;
     beforeEach(() => {
         wrapper = setup({
@@ -37,7 +37,7 @@ describe('no word guessed', () => {
         expect(guessedWordRow).toHaveLength(1);
     })
 });
-describe('some word guessed', () => {
+describe.skip('some word guessed', () => {
     let wrapper;
     beforeEach(() => {
         wrapper = setup({
@@ -51,7 +51,7 @@ describe('some word guessed', () => {
         expect(guessedWrodNodes).toHaveLength(2);
     })
 });
-describe('guessed secret word', () => {
+describe.skip('guessed secret word', () => {
     let wrapper;
     beforeEach(() => {
         wrapper = setup({
