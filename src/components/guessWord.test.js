@@ -73,4 +73,15 @@ describe('guessed secret word', () => {
         const guessedWordNodes = findByTestAttr(wrapper, 'guessed-word');
         expect(guessedWordNodes).toHaveLength(3);
     });
+    test('displays congrats component', () => {
+        const congrats = findByTestAttr(wrapper, 'component-congrats');
+        expect(congrats.test().length).toBeGreaterThan(0);
+    });
+    test('does not display input component contents', () => {
+        const inputBox = findByTestAttr(wrapper, 'input-box');
+        expect(inputBox.exists()).toBe(false);
+
+        const submitButton = findByTestAttr(wrapper, 'submit-button');
+        expect(submitButton.exists()).toBe(false);
+    })
 })
