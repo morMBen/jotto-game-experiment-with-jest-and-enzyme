@@ -38,8 +38,39 @@ describe('no word guessed', () => {
     })
 });
 describe('some word guessed', () => {
-
+    let wrapper;
+    beforeEach(() => {
+        wrapper = setup({
+            secretWord: 'party',
+            success: false,
+            guessedWords: [{ guessedWord: 'agile', letterMatchCount: 1 }],
+        });
+    })
+    test('adds row to guessedWords table', () => {
+        const guessedWrodNodes = findByTestAttr(wrapper, 'guessed-word');
+        expect(guessedWrodNodes).toHaveLength(2);
+    })
 });
 describe('guessed secret word', () => {
+    let wrapper;
+    beforeEach(() => {
+        wrapper = setup({
+            secretWord: 'party',
+            success: false,
+            guessedWords: [{ guessedWord: 'agile', letterMatchCount: 1 }],
+        });
 
+        // add value to input box
+        const inputBox = findByTestAttr(wrapper, 'input-box');
+        const mockEvent = { target: { value: 'party' } };
+        inputBox.simulate('change', mockEvent);
+
+        // simulate click on submit button
+        const submitButton = findByTestAttr(wrapper, 'submit-button');
+        submitButton.simulate('click', { preventDefault() { } });
+    });
+    test('add row to guessedWords table', () => {
+        const guessedWordNodes = findByTestAttr(wrapper, 'guessed-word');
+        expect(guessedWordNodes).toHaveLength(3);
+    });
 })
