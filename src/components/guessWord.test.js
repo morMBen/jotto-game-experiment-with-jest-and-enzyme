@@ -37,7 +37,11 @@ describe.skip('no word guessed', () => {
         expect(guessedWordRow).toHaveLength(1);
     })
 });
+<<<<<<< HEAD
 describe.skip('some word guessed', () => {
+=======
+describe('some word guessed', () => {
+>>>>>>> 1e91d18 (guess word test)
     let wrapper;
     beforeEach(() => {
         wrapper = setup({
@@ -51,7 +55,11 @@ describe.skip('some word guessed', () => {
         expect(guessedWrodNodes).toHaveLength(2);
     })
 });
+<<<<<<< HEAD
 describe.skip('guessed secret word', () => {
+=======
+describe('guessed secret word', () => {
+>>>>>>> 1e91d18 (guess word test)
     let wrapper;
     beforeEach(() => {
         wrapper = setup({
@@ -59,12 +67,21 @@ describe.skip('guessed secret word', () => {
             success: false,
             guessedWords: [{ guessedWord: 'agile', letterMatchCount: 1 }],
         });
+<<<<<<< HEAD
 
         // add value to input box
         const inputBox = findByTestAttr(wrapper, 'input-box');
         const mockEvent = { target: { value: 'party' } };
         inputBox.simulate('change', mockEvent);
 
+=======
+
+        // add value to input box
+        const inputBox = findByTestAttr(wrapper, 'input-box');
+        const mockEvent = { target: { value: 'party' } };
+        inputBox.simulate('change', mockEvent);
+
+>>>>>>> 1e91d18 (guess word test)
         // simulate click on submit button
         const submitButton = findByTestAttr(wrapper, 'submit-button');
         submitButton.simulate('click', { preventDefault() { } });
@@ -73,6 +90,7 @@ describe.skip('guessed secret word', () => {
         const guessedWordNodes = findByTestAttr(wrapper, 'guessed-word');
         expect(guessedWordNodes).toHaveLength(3);
     });
+<<<<<<< HEAD
     test('displays congrats component', () => {
         const congrats = findByTestAttr(wrapper, 'component-congrats');
         expect(congrats.test().length).toBeGreaterThan(0);
@@ -84,4 +102,6 @@ describe.skip('guessed secret word', () => {
         const submitButton = findByTestAttr(wrapper, 'submit-button');
         expect(submitButton.exists()).toBe(false);
     })
+=======
+>>>>>>> 1e91d18 (guess word test)
 })
